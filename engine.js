@@ -6,32 +6,21 @@
 class Job {
     constructor(id, startTime, endTime) {
         this.id = id;
-        this.startTime = startTime; // tempo em minutos
+        this.startTime = startTime;
         this.endTime = endTime;
-        this.resourceId = null; // ID do servidor alocado
+        this.resourceId = null;
     }
 }
 
-/**
- * Ordena os jobs pelo seu tempo de início crescente.
- * @param {Job[]} jobs - Array de jobs a ordenar.
- * @returns {Job[]} - Array ordenado.
- */
 function sortJobsByStartTime(jobs) {
     return jobs.sort((a, b) => a.startTime - b.startTime);
 }
 
-/**
- * Implementa o algoritmo de Interval Partitioning.
- * @param {Job[]} jobs - Array de jobs não processados.
- * @returns {Job[]} - Array de jobs com resourceId atualizado.
- */
 function intervalPartitioning(jobs) {
     if (!jobs || jobs.length === 0) return [];
 
     const sortedJobs = sortJobsByStartTime([...jobs]);
-    
-    // Array para monitorizar os endTimes das salas/servidores
+
     const serversEndTimes = [];
 
     sortedJobs.forEach(job => {
