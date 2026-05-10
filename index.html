@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Resource Optimizer - Interval Partitioning</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <h1>Cloud Resource Optimizer</h1>
+            <p class="subtitle">Interval Partitioning Algorithm</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="form-section">
+            <h2>Add New Job</h2>
+            <form id="jobForm" class="job-form">
+                <div class="form-group">
+                    <label for="jobName">Job Name</label>
+                    <input type="text" id="jobName" placeholder="e.g., DataProcessing" required>
+                </div>
+                <div class="form-group">
+                    <label for="startTime">Start Time (min)</label>
+                    <input type="number" id="startTime" placeholder="e.g., 480" min="0" required>
+                </div>
+                <div class="form-group">
+                    <label for="endTime">End Time (min)</label>
+                    <input type="number" id="endTime" placeholder="e.g., 600" min="0" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Add Job</button>
+                <button type="button" id="randomizeBtn" class="btn btn-secondary">Randomize</button>
+            </form>
+        </section>
+
+        <section class="chart-section">
+            <h2>Resource Allocation</h2>
+            <div id="ganttChart" class="gantt-chart">
+                <div class="chart-placeholder">
+                    <p>Chart will appear here</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="metrics-section">
+            <h2>Metrics</h2>
+            <div id="metricsContainer" class="metrics">
+                <div class="metric">
+                    <span class="metric-label">Servers Used:</span>
+                    <span class="metric-value">-</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Total Jobs:</span>
+                    <span class="metric-value">-</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="engine.js"></script>
+    <script src="data.js"></script>
+    <script src="ui.js"></script>
+</body>
+</html>
