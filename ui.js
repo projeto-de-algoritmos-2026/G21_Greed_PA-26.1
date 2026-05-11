@@ -1,15 +1,9 @@
 // ui.js
 
-/**
- * Renderiza as linhas dos servidores no gráfico de Gantt.
- * Limpa o contentor e cria uma linha (row) para cada servidor alocado.
- * @param {number} totalServers - O número de servidores alocados.
- */
 function renderServerLines(totalServers) {
     const ganttChart = document.getElementById('ganttChart');
     if (!ganttChart) return;
 
-    // Limpa o estado vazio
     ganttChart.innerHTML = '';
 
     for (let i = 0; i < totalServers; i++) {
@@ -29,4 +23,29 @@ function renderServerLines(totalServers) {
         serverRow.appendChild(serverTimeline);
         ganttChart.appendChild(serverRow);
     }
+}
+
+function renderJobs(jobs) {
+    const MIN_TIME = 480;
+    const TOTAL_TIME = 600;
+
+    jobs.forEach(job => {
+        if (job.resourceId === null) return;
+
+        const timeline = document.getElementById(`timeline-${job.resourceId}`);
+        if (!timeline) return;
+
+        const jobBlock = document.createElement('div');
+        jobBlock.classList.add('job-block');
+        
+        const duration = job.endTime - job.startTime;
+        const leftPercent = ((job.startTime - MIN_TIME) / TOTAL_TIME) * 100;
+        const widthPercent = (duration / TOTAL_TIME) * 100;
+
+        jobBlock.style.left = `${leftPercent}%`;
+        jobBlock.style.width = `${widthPercent}%`;
+        jobBlock.textContent = job.id;
+
+        timeline.appendChild(jobBlock);
+    });
 }
