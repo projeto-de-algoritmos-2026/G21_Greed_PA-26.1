@@ -1,8 +1,5 @@
 // engine.js
 
-/**
- * Representa um Batch Job.
- */
 class Job {
     constructor(id, startTime, endTime) {
         this.id = id;
@@ -44,19 +41,17 @@ function intervalPartitioning(jobs) {
     return sortedJobs;
 }
 
-/**
- * Calcula métricas de eficiência da alocação de servidores.
- * Num cenário ingénuo, usaríamos 1 servidor por Job.
- * Com a otimização, usamos o número retornado pelo Interval Partitioning.
- * @param {number} totalJobs - Número total de jobs.
- * @param {number} serversUsed - Número de servidores alocados.
- * @returns {string} - Percentagem de economia de recursos (ex: "75.00").
- */
 function calculateEfficiency(totalJobs, serversUsed) {
     if (totalJobs === 0) return "0.00";
-    
+
     // Economia: ((totalJobs - serversUsed) / totalJobs) * 100
     const economy = ((totalJobs - serversUsed) / totalJobs) * 100;
-    
+
     return economy.toFixed(2);
+}
+
+function formatTime(minutes) {
+    const hours = Math.floor(minutes / 60);
+    const mins = minutes % 60;
+    return `${hours.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}`;
 }
