@@ -55,13 +55,16 @@ function updateMetrics(totalJobs, serversUsed) {
     const metricsContainer = document.getElementById('metricsContainer');
     const serverMetric = metricsContainer.querySelector('.metric:nth-child(1) .metric-value');
     const jobMetric = metricsContainer.querySelector('.metric:nth-child(2) .metric-value');
+    const efficiencyMetric = metricsContainer.querySelector('.metric:nth-child(3) .metric-value');
+    
     serverMetric.textContent = serversUsed;
     jobMetric.textContent = totalJobs;
+    efficiencyMetric.textContent = calculateEfficiency(totalJobs, serversUsed);
 }
 
 function updateChart() {
     const assignedJobs = intervalPartitioning(currentJobs);
-    const totalServers = Math.max(...assignedJobs.map(j => j.resourceId)) + 1;
+    const totalServers = assignedJobs.length > 0 ? Math.max(...assignedJobs.map(j => j.resourceId)) + 1 : 0;
     renderServerLines(totalServers);
     renderJobs(assignedJobs);
     updateMetrics(assignedJobs.length, totalServers);
