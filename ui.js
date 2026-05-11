@@ -1,5 +1,7 @@
 // ui.js
 
+let currentJobs = [];
+
 function renderServerLines(totalServers) {
     const ganttChart = document.getElementById('ganttChart');
     if (!ganttChart) return;
@@ -13,7 +15,7 @@ function renderServerLines(totalServers) {
 
         const serverLabel = document.createElement('div');
         serverLabel.classList.add('server-label');
-        serverLabel.textContent = `Server ${i + 1}`;
+        serverLabel.textContent = `Servidor ${i + 1}`;
 
         const serverTimeline = document.createElement('div');
         serverTimeline.classList.add('server-timeline');
@@ -50,3 +52,41 @@ function renderJobs(jobs) {
         timeline.appendChild(jobBlock);
     });
 }
+
+function updateMetrics(totalJobs, serversUsed) {
+    const metricsContainer = document.getElementById('metricsContainer');
+    const serverMetric = metricsContainer.querySelector('.metric:nth-child(1) .metric-value');
+    const jobMetric = metricsContainer.querySelector('.metric:nth-child(2) .metric-value');
+    serverMetric.textContent = serversUsed;
+    jobMetric.textContent = totalJobs;
+}
+
+function updateChart() {
+    const assignedJobs = intervalPartitioning(currentJobs);
+    const totalServers = Math.max(...assignedJobs.map(j => j.resourceId)) + 1;
+    renderServerLines(totalServers);
+    renderJobs(assignedJobs);
+    updateMetrics(assignedJobs.length, totalServers);
+}
+
+function init() {
+    currentJobs = generateRandomJobs(10);
+    updateChart();
+}
+
+document.getElementById('jobForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('jobName').value;
+    const start = parseInt(document.getElementById('startTime').value);
+    const end = parseInt(document.getElementById('endTime').value);
+    if (end <= start) {
+        alert('O tempo de fim deve ser após o tempo de início');
+        return;
+    }
+    const newJob = new Job(name, start, end);
+    currentJobs.push(newJob);
+    updateChart();
+    this.reset();
+});
+
+window.addEventListener('load', init);
