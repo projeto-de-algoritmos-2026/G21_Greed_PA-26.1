@@ -55,4 +55,4 @@ xdg-open index.html
 - O Gráfico de Gantt será atualizado automaticamente, mostrando a alocação dos jobs nos servidores utilizados, com métricas de eficiência.
 
 ## Vídeo de apresentação
-*(Link para o vídeo será inserido aqui na entrega final)*
+*[(Link do Video - Grupo 21)](https://youtu.be/jK5sK0jRFkw)*
