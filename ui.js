@@ -89,4 +89,9 @@ document.getElementById('jobForm').addEventListener('submit', function(e) {
     this.reset();
 });
 
+document.getElementById('randomizeBtn').addEventListener('click', function() {
+    currentJobs = generateRandomJobs(20);
+    updateChart();
+});
+
 window.addEventListener('load', init);
