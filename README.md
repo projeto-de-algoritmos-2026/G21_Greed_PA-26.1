@@ -7,7 +7,7 @@
 |Matrícula | Aluno |
 | -- | -- |
 | 21/1062320  | [Miguel Arthur](https://github.com/zlimaz) |
-| -- | [Mary](https://github.com/) |
+| 21/1062796 | [Mariiana Siqueira Neris](https://github.com/Maryyscreuza)  |
 
 ## Sobre 
 
