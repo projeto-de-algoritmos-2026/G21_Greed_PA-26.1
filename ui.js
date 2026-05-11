@@ -45,6 +45,7 @@ function renderJobs(jobs) {
         jobBlock.style.left = `${leftPercent}%`;
         jobBlock.style.width = `${widthPercent}%`;
         jobBlock.textContent = job.id;
+        jobBlock.setAttribute('data-details', `Início: ${formatTime(job.startTime)} | Fim: ${formatTime(job.endTime)}`);
 
         timeline.appendChild(jobBlock);
     });
