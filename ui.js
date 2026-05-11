@@ -75,8 +75,12 @@ function init() {
 document.getElementById('jobForm').addEventListener('submit', function(e) {
     e.preventDefault();
     const name = document.getElementById('jobName').value;
-    const start = parseInt(document.getElementById('startTime').value);
-    const end = parseInt(document.getElementById('endTime').value);
+    const startStr = document.getElementById('startTime').value;
+    const endStr = document.getElementById('endTime').value;
+    
+    const start = parseTimeToMinutes(startStr);
+    const end = parseTimeToMinutes(endStr);
+    
     if (end <= start) {
         alert('O tempo de fim deve ser após o tempo de início');
         return;

@@ -1,17 +1,19 @@
 function generateRandomJobs(count = 10) {
     const jobs = [];
-
-    // O horário simulado é entre as 08:00 (480 minutos) e 18:00 (1080 minutos)
-    const minTime = 480;
-    const maxTime = 1080;
+    const minHour = 8;
+    const maxHour = 18;
 
     for (let i = 1; i <= count; i++) {
-        const start = Math.floor(Math.random() * (960 - minTime + 1)) + minTime;
+        const startHour = Math.floor(Math.random() * (maxHour - minHour)) + minHour;
+        const startMin = Math.random() > 0.5 ? 30 : 0;
+        const start = startHour * 60 + startMin;
 
-        const duration = Math.floor(Math.random() * (180 - 30 + 1)) + 30;
+        const durationHours = Math.floor(Math.random() * 3) + 1;
+        const durationMins = Math.random() > 0.5 ? 30 : 0;
+        const duration = durationHours * 60 + durationMins;
 
         let end = start + duration;
-        if (end > maxTime) end = maxTime;
+        if (end > maxHour * 60) end = maxHour * 60;
 
         jobs.push(new Job(`Job-${i}`, start, end));
     }

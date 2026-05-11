@@ -9,34 +9,34 @@
 <body>
     <header class="header">
         <div class="header-content">
-            <h1>Cloud Resource Optimizer</h1>
-            <p class="subtitle">Interval Partitioning Algorithm</p>
+            <h1>Otimizador de Recursos em Nuvem</h1>
+            <p class="subtitle">Algoritmo de Particionamento de Intervalos</p>
         </div>
     </header>
 
     <main class="container">
         <section class="form-section">
-            <h2>Add New Job</h2>
+            <h2>Adicionar Novo Job</h2>
             <form id="jobForm" class="job-form">
                 <div class="form-group">
-                    <label for="jobName">Job Name</label>
-                    <input type="text" id="jobName" placeholder="e.g., DataProcessing" required>
+                    <label for="jobName">Nome do Job</label>
+                    <input type="text" id="jobName" placeholder="ex: ProcessamentoDados" required>
                 </div>
                 <div class="form-group">
-                    <label for="startTime">Start Time (min)</label>
-                    <input type="number" id="startTime" placeholder="e.g., 480" min="0" required>
+                    <label for="startTime">Hora de Início (HH:MM)</label>
+                    <input type="text" id="startTime" placeholder="ex: 08:00" required>
                 </div>
                 <div class="form-group">
-                    <label for="endTime">End Time (min)</label>
-                    <input type="number" id="endTime" placeholder="e.g., 600" min="0" required>
+                    <label for="endTime">Hora de Fim (HH:MM)</label>
+                    <input type="text" id="endTime" placeholder="ex: 10:00" required>
                 </div>
-                <button type="submit" class="btn btn-primary">Add Job</button>
-                <button type="button" id="randomizeBtn" class="btn btn-secondary">Randomize</button>
+                <button type="submit" class="btn btn-primary">Adicionar Job</button>
+                <button type="button" id="randomizeBtn" class="btn btn-secondary">Aleatorizar</button>
             </form>
         </section>
 
         <section class="chart-section">
-            <h2>Resource Allocation</h2>
+            <h2>Alocação de Recursos</h2>
             <div id="ganttChart" class="gantt-chart">
                 <div class="chart-placeholder">
                     <p>Chart will appear here</p>
@@ -45,18 +45,18 @@
         </section>
 
         <section class="metrics-section">
-            <h2>Metrics</h2>
+            <h2>Métricas</h2>
             <div id="metricsContainer" class="metrics">
                 <div class="metric">
-                    <span class="metric-label">Servers Used:</span>
+                    <span class="metric-label">Servidores Usados:</span>
                     <span class="metric-value">-</span>
                 </div>
                 <div class="metric">
-                    <span class="metric-label">Total Jobs:</span>
+                    <span class="metric-label">Total de Jobs:</span>
                     <span class="metric-value">-</span>
                 </div>
                 <div class="metric">
-                    <span class="metric-label">Efficiency (%):</span>
+                    <span class="metric-label">Eficiência (%):</span>
                     <span class="metric-value">-</span>
                 </div>
             </div>

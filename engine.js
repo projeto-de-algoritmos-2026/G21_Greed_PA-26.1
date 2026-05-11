@@ -53,3 +53,13 @@ function formatTime(minutes) {
     const mins = minutes % 60;
     return `${hours.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}`;
 }
+
+function parseTimeToMinutes(timeStr) {
+    if (typeof timeStr === 'number') {
+        return timeStr * 60;
+    }
+    const parts = timeStr.split(':');
+    const hours = parseInt(parts[0]) || 0;
+    const mins = parseInt(parts[1]) || 0;
+    return hours * 60 + mins;
+}

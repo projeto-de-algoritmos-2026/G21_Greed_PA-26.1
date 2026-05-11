@@ -16,6 +16,8 @@
     --success: #10b981;
     --danger: #ef4444;
     --radius: 8px;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 body {
@@ -222,12 +224,36 @@ body {
     }
 }
 
+.server-row {
+    display: flex;
+    margin-bottom: 2rem;
+    align-items: stretch;
+}
+
+.server-label {
+    min-width: 100px;
+    padding-right: 1rem;
+    font-weight: 600;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+}
+
+.server-timeline {
+    flex: 1;
+    position: relative;
+    height: 50px;
+    background-color: var(--light-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
 /* --- JOB BLOCKS & HOVER STATES --- */
 .job-block {
     position: absolute;
-    height: 80%;
-    top: 10%;
-    background-color: var(--primary-color);
+    height: 100%;
+    top: 0;
+    background-color: var(--primary);
     color: white;
     border-radius: 4px;
     display: flex;
@@ -245,9 +271,9 @@ body {
 .job-block:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
-    background-color: var(--primary-hover);
+    background-color: #0052a3;
     z-index: 10;
-    overflow: visible; /* Necessário para mostrar o tooltip que fica fora do container */
+    overflow: visible;
 }
 
 /* Tooltip via ::after */
