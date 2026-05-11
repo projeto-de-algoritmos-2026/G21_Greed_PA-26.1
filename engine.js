@@ -1,5 +1,3 @@
-// engine.js
-
 class Job {
     constructor(id, startTime, endTime) {
         this.id = id;

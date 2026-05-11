@@ -1,5 +1,3 @@
-// data.js
-
 function generateRandomJobs(count = 10) {
     const jobs = [];
 

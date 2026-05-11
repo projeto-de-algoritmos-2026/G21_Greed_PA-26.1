@@ -50,9 +50,9 @@ xdg-open index.html
 ```
 
 ## Uso 
-- Insira o tempo de início e o tempo de fim no formulário para adicionar novos Batch Jobs individualmente.
-- Opcionalmente, clique em **"Gerar Dados (Randomize)"** para criar um cenário de testes com vários jobs aleatórios (entre 10 e 15) simulando um ambiente real entre as 08h00 e as 18h00.
-- O Gráfico de Gantt será desenhado mostrando a linha temporal e as salas/servidores usados.
+- Insira o nome do job, tempo de início e tempo de fim no formulário para adicionar novos Batch Jobs individualmente.
+- Clique em **"Randomize"** para gerar um cenário complexo com 20 jobs aleatórios, simulando um ambiente real entre as 08:00 e as 18:00, para demonstrar o algoritmo em ação.
+- O Gráfico de Gantt será atualizado automaticamente, mostrando a alocação dos jobs nos servidores utilizados, com métricas de eficiência.
 
 ## Vídeo de apresentação
 *(Link para o vídeo será inserido aqui na entrega final)*

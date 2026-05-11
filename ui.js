@@ -1,5 +1,3 @@
-// ui.js
-
 let currentJobs = [];
 
 function renderServerLines(totalServers) {
