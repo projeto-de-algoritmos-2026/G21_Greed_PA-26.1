@@ -54,5 +54,17 @@ xdg-open index.html
 - Clique em **"Randomize"** para gerar um cenário complexo com 20 jobs aleatórios, simulando um ambiente real entre as 08:00 e as 18:00, para demonstrar o algoritmo em ação.
 - O Gráfico de Gantt será atualizado automaticamente, mostrando a alocação dos jobs nos servidores utilizados, com métricas de eficiência.
 
+## Screenshots
+Adicione 3 ou mais screenshots do projeto em funcionamento aqui.
+
+1. Tela principal por inteira
+![Tela inteira](img/telaInteira.jpeg)
+
+2. Menu de adição de jobs
+![Menu de adição](img/telaAdicionar.jpeg)
+
+3. Menu de métricas
+![Menu de métricas](img/telaMetrica.jpeg)
+
 ## Vídeo de apresentação
 *[(Link do Video - Grupo 21)](https://youtu.be/jK5sK0jRFkw)*
